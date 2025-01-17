@@ -1,0 +1,186 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout och typsnitt */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* Navigationsbar */
+nav {
+    display: flex;
+    justify-content: space-between; /* Separera innehållet till vänster och knappen till höger */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Styling för listan med länkar */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px; /* Avstånd mellan länkarna */
+    margin: 0; /* Ta bort standardmarginal från ul */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+    background: #555;
+}
+
+/* Huvudinnehåll */
+main {
+    padding: 150px 20px 20px;
+}
+main h1 {
+    margin-bottom: 28px;
+}
+
+/* Knappar */
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 150px; /* Samma bredd för alla knappar */
+}
+
+button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    button {
+        width: 100%; /* Full bredd på mindre skärmar */
+    }
+}
+
+
+
+/* ACCESSIBILLITY  */
+/* STANDARDSTIL */
+body {
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* TILLGÄNGLIGHETSLÄGE */
+body.accessible-mode {
+    background: black;
+    color: white;
+}
+
+/* Länkar i tillgänglighetsläge */
+body.accessible-mode a {
+    color: yellow;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* H1 i tillgänglighetsläge */
+body.accessible-mode h1 {
+    color: yellow;  /* Gör rubriker gula i tillgänglighetsläge */
+}
+
+/* Knappstil i tillgänglighetsläge */
+body.accessible-mode button {
+    background: white;
+    color: black;
+    border: 2px solid yellow;
+    padding: 10px 20px;  /* Justerat padding för bättre passform */
+    border-radius: 5px;
+    font-size: 1rem;  /* Sätt en bra storlek för texten */
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;  /* Förhindrar textbrytning */
+}
+
+body.accessible-mode button:hover {
+    background: yellow;
+    color: black;
+}
+
+/* Tillgänglighetsknappen */
+#accessibility-toggle {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 0px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    white-space: nowrap;  /* Förhindrar textbrytning på knappen */
+}
+
+/* Hover-effekt för tillgänglighetsknappen */
+#accessibility-toggle:hover {
+    background: white;
+    color: black;
+}
+
+/* Justering av knappen när den är i tillgänglighetsläge */
+body.accessible-mode #accessibility-toggle {
+    background: yellow;
+    color: black;
+    border: 2px solid yellow;
+}
