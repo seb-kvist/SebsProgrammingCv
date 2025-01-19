@@ -5,15 +5,15 @@
     box-sizing: border-box;
 }
 
-/* Layout och typsnitt */
+/* Grundläggande layout och typografi */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
     background: #f8f8f8;
     color: #333;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 header {
@@ -34,17 +34,15 @@ header h1 {
 /* Navigationsbar */
 nav {
     display: flex;
-    justify-content: space-between; /* Separera innehållet till vänster och knappen till höger */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
 
-/* Styling för listan med länkar */
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px; /* Avstånd mellan länkarna */
-    margin: 0; /* Ta bort standardmarginal från ul */
+    gap: 15px;
 }
 
 nav a {
@@ -63,20 +61,18 @@ nav a:hover {
 /* Huvudinnehåll */
 main {
     padding: 150px 20px 20px;
+    max-width: 50%;
+    margin: auto;
+    text-align: left;
 }
+
 main h1 {
     margin-bottom: 28px;
 }
 
 /* Knappar */
-.button-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-button {
+button,
+#accessibility-toggle {
     background-color: #333;
     color: white;
     border: none;
@@ -85,10 +81,10 @@ button {
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.3s ease, transform 0.2s ease;
-    width: 150px; /* Samma bredd för alla knappar */
 }
 
-button:hover {
+button:hover,
+#accessibility-toggle:hover {
     background-color: #555;
     transform: translateY(-2px);
 }
@@ -97,90 +93,85 @@ button:active {
     transform: translateY(0);
 }
 
-/* Responsiv design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    button {
-        width: 100%; /* Full bredd på mindre skärmar */
-    }
+#accessibility-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
 }
 
-
-
-/* ACCESSIBILLITY  */
-/* STANDARDSTIL */
-body {
-    background: white;
-    color: black;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* TILLGÄNGLIGHETSLÄGE */
 body.accessible-mode {
     background: black;
     color: white;
 }
 
-/* Länkar i tillgänglighetsläge */
 body.accessible-mode a {
     color: yellow;
     text-decoration: underline;
     font-weight: bold;
 }
 
-/* H1 i tillgänglighetsläge */
-body.accessible-mode h1 {
-    color: yellow;  /* Gör rubriker gula i tillgänglighetsläge */
-}
-
-/* Knappstil i tillgänglighetsläge */
-body.accessible-mode button {
-    background: white;
-    color: black;
-    border: 2px solid yellow;
-    padding: 10px 20px;  /* Justerat padding för bättre passform */
-    border-radius: 5px;
-    font-size: 1rem;  /* Sätt en bra storlek för texten */
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-    white-space: nowrap;  /* Förhindrar textbrytning */
-}
-
-body.accessible-mode button:hover {
-    background: yellow;
-    color: black;
-}
-
-/* Tillgänglighetsknappen */
-#accessibility-toggle {
-    background: none;
-    border: 2px solid white;
-    color: white;
-    padding: 8px 0px;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-    font-weight: bold;
-    white-space: nowrap;  /* Förhindrar textbrytning på knappen */
-}
-
-/* Hover-effekt för tillgänglighetsknappen */
-#accessibility-toggle:hover {
-    background: white;
-    color: black;
-}
-
-/* Justering av knappen när den är i tillgänglighetsläge */
+body.accessible-mode button,
 body.accessible-mode #accessibility-toggle {
     background: yellow;
     color: black;
     border: 2px solid yellow;
+}
+
+/* My Work Gallery */
+.myWorkGallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.myWorkGallery .project {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 300px;
+}
+
+.myWorkGallery .project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.myWorkGallery img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.myWorkGallery h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.myWorkGallery p {
+    margin: 0 10px 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    button,
+    #accessibility-toggle {
+        width: 100%;
+    }
+    .myWorkGallery {
+        grid-template-columns: 1fr;
+    }
 }
