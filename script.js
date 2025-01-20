@@ -63,33 +63,54 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="weather-app-thumbnail.png" alt="Weather App Screenshot">
                     <h3>Weather App</h3>
                     <p>A dynamic web application to display current weather information.</p>
+                    <div class="language-practice">
+                        <strong>Language practice: </strong> <span class="javascript">JavaScript</span>
+                    </div>
                 </a>
-                </div>
-                <div class="project">
-                    <a href="https://github.com/seb-kvist/project2" target="_blank">
-                        <img src="task-manager-thumbnail.png" alt="Task Manager Screenshot">
-                        <h3>Task Manager</h3>
-                        <p>A full-stack application to manage daily tasks.</p>
-                    </a>
-                </div>
-                <div class="project">
-                    <a href="https://github.com/seb-kvist/project3" target="_blank">
-                        <img src="budget-tracker-thumbnail.png" alt="Budget Tracker Screenshot">
-                        <h3>Budget Tracker</h3>
-                        <p>A finance app to track expenses and income over time.</p>
-                    </a>
-                </div>
-                <div class="project">
-                    <a href="https://github.com/seb-kvist/project4" target="_blank">
-                        <img src="portfolio-site-thumbnail.png" alt="Portfolio Site Screenshot">
-                        <h3>Portfolio Site</h3>
-                        <p>A personal website showcasing my projects and skills.</p>
-                    </a>
-                </div>
             </div>
+            <div class="project">
+                <a href="https://github.com/seb-kvist/project2" target="_blank">
+                    <img src="task-manager-thumbnail.png" alt="Task Manager Screenshot">
+                    <h3>Task Manager</h3>
+                    <p>A full-stack application to manage daily tasks.</p>
+                    <div class="language-practice">
+                        <strong>Language practice: </strong> <span class="typescript">TypeScript</span>, <span class="csharp">C#</span>
+                    </div>
+                </a>
+            </div>
+            <div class="project">
+                <a href="https://github.com/seb-kvist/project3" target="_blank">
+                    <img src="budget-tracker-thumbnail.png" alt="Budget Tracker Screenshot">
+                    <h3>Budget Tracker</h3>
+                    <p>A finance app to track expenses and income over time.</p>
+                    <div class="language-practice">
+                        <strong>Language practice: </strong> <span class="javascript">JavaScript</span>, <span class="csharp">C#</span>
+                    </div>
+                </a>
+            </div>
+            <div class="project">
+                <a href="https://github.com/seb-kvist/project4" target="_blank">
+                    <img src="portfolio-site-thumbnail.png" alt="Portfolio Site Screenshot">
+                    <h3>Portfolio Site</h3>
+                    <p>A personal website showcasing my projects and skills.</p>
+                    <div class="language-practice">
+                        <strong>Language practice: </strong> <span class="html">HTML</span>, <span class="css">CSS</span>
+                    </div>
+                </a>
+            </div>
+            <div class="project">
+                    <a href="https://github.com/seb-kvist/SebsBank" target="_blank">
+                        <img src="img/SebsBankERhino.png" alt="Sebs Bank-E-Rhino Site Screenshot">
+                        <h3>Seb's Bank-E-Rhino</h3>
+                        <p>Typescript project trying out balance, withdrawal and deposit functions.</p>
+                        <div class="language-practice">
+                        <strong>Language practice: </strong> <span class="html">HTML</span>, <span class="css">CSS</span>
+                    </div>
+                    </a>
+            </div>
+        </div>
         `;
     }
-
     // Function to update the active link (style for active page)
     function updateActiveLink(page) {
         links.forEach(link => {

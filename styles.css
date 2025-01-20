@@ -73,7 +73,7 @@ nav a:hover {
 /* Huvudinnehåll */
 main {
     padding: 50px 20px 20px;
-    max-width: 50%;
+    max-width: 70%;
     margin: auto;
     text-align: left;
 }
@@ -170,7 +170,7 @@ footer {
 .myWorkGallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 70px;
     padding: 20px;
     justify-items: center;
 }
@@ -182,7 +182,7 @@ footer {
     text-align: center;
     padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 300px;
+    max-width: 400px;
 }
 
 .myWorkGallery .project:hover {
@@ -253,4 +253,53 @@ footer {
 
 .contact-details strong {
     font-weight: bold;
+}
+/* Huvudinnehåll */
+main {
+    padding: 50px 20px 80px; /* Lägg till padding-bottom så att innehållet inte täcks av footern */
+    max-width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+    position: relative; /* Byt till relative så att footern inte är fast i botten */
+    width: 100%;
+    z-index: 1000;
+}
+/* Language Practice in each project */
+.language-practice {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.language-practice strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Färger för varje språk */
+.language-practice .javascript {
+    color: #f7df1e; /* JavaScript färg */
+}
+
+.language-practice .typescript {
+    color: #3178c6; /* TypeScript färg */
+}
+
+.language-practice .csharp {
+    color: #9b4d96; /* C# färg */
+}
+
+.language-practice .html {
+    color: #e34f26; /* HTML färg */
+}
+
+.language-practice .css {
+    color: #264de4; /* CSS färg */
 }
