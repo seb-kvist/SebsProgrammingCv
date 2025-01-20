@@ -37,8 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Template for the Contact Page
     function getContactPageContent() {
         return `
-            <h2>Contact Me</h2>
-            <p>You can reach me via email: <a href="mailto:seb@example.com">seb@example.com</a>.</p>
+            <div class="contact-container">
+                <h1>Contact Me</h1>
+                <p>If you'd like to get in touch, here are my details:</p>
+                <div class="contact-details">
+                    <p><strong>Name:</strong> Sebastian Kvist</p>
+                    <p><strong>Address:</strong> Täbyvägen 326A, Täby, Stockholm</p>
+                    <p><strong>Phone:</strong> <a href="tel:+46722277877">072-227 78 77</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:sebastian_kvist@hotmail.com">sebastian_kvist@hotmail.com</a></p>
+                </div>
+            </div>
         `;
     }
 
