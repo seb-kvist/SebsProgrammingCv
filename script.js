@@ -5,15 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Template for the Home Page
     function getHomePageContent() {
         return `
-            <h1>Well, hello there!</h1>
-            <p>I'm glad you decided to check in and more so in giving me a chance to present myself.
-            Either navigate through the nav-bar in the header on the buttons below.</p>
-            <p>I hope you enjoy your stay, and thank you again for checking it out!</p>
-            <br>
-            <div class="button-container-home">
-                <button data-page="about">About Me</button>
-                <button data-page="contact">Contact Me</button>
-                <button data-page="work">My Work</button>
+            <div class="container">
+                <h1 class="animated-text">Well, hello there!</h1>
+            </div>
+            <div class = "home-container">
+                <p>I'm glad you decided to check in and more so in giving me a chance to present myself.
+                Either navigate through the nav-bar in the header on the buttons below.</p>
+                <p>I hope you enjoy your stay, and thank you again for checking out my portfolio!</p>
+                <br>
+                <div class="button-container-home">
+                    <button data-page="about">About Me</button>
+                    <button data-page="contact">Contact Me</button>
+                    <button data-page="work">My Work</button>
+                </div>
             </div>
         `;
     }
@@ -45,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="contact-details">
                     <p><strong>Name:</strong> Sebastian Kvist</p>
                     <p><strong>Address:</strong> Täbyvägen 326A, Täby, Stockholm</p>
-                    <p><strong>Phone:</strong> <a href="tel:+46722277877">072-227 78 77</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:sebastian_kvist@hotmail.com">sebastian_kvist@hotmail.com</a></p>
+                    <p><strong>Phone:</strong> 072-227 78 77</p>
+                    <p><strong>Email:</strong> sebastian_kvist@hotmail.com</p>
                 </div>
             </div>
         `;

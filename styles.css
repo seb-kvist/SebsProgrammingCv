@@ -1,373 +1,212 @@
-    /* Reset styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    /* Grundläggande layout och typografi */
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        background: #f8f8f8;
-        color: #333;
-        text-align: center;
-        transition: background-color 0.3s, color 0.3s;
-        padding-top: 80px; /* För att ge plats för den fasta headern */
-    }
-
-    /* Header */
-    header {
-        background: #333;
-        color: white;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        padding: 15px 0;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
-        text-align: left;
-        flex: 1;
-        color: white
-    }
-
-    /* Navigationsbar */
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 20px;
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        transition: background 0.3s ease;
-    }
-
-    nav a.active,
-    nav a:hover {
-        background: #555;
-    }
-
-    /* Huvudinnehåll */
-    main {
-        padding: 50px 20px 20px;
-        max-width: 70%;
-        margin: auto;
-        text-align: left;
-    }
-
-    /* Knappar */
-    button,
-    #accessibility-toggle {
-        background-color: #333;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    button:hover,
-    #accessibility-toggle:hover {
-        background-color: #555;
-        transform: translateY(-2px);
-    }
-
-    button:active {
-        transform: translateY(0);
-    }
-
-    /* Tillgänglighetsläge */
-    body.accessible-mode {
-        background: black;
-        color: white;
-    }
-
-    body.accessible-mode a {
-        color: yellow;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    body.accessible-mode button,
-    body.accessible-mode #accessibility-toggle {
-        background: yellow;
-        color: black;
-        border: 2px solid yellow;
-    }
-
-    /* Footer */
-    footer {
-        padding: 20px;
-        background-color: #333;
-        text-align: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    /* Responsiv design */
-    @media (max-width: 768px) {
-        .header-container {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        header h1 {
-            font-size: 1.2rem;
-        }
-
-        nav ul {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        nav {
-            margin-top: 10px;
-        }
-
-        button,
-        #accessibility-toggle {
-            width: 100%;
-        }
-
-        footer {
-            position: relative;
-        }
-
-        main {
-            max-width: 90%;
-        }
-    }
-
-    /* My Work Gallery */
-    .myWorkGallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 86px;
-        padding: 98px;
-        justify-items: center;
-    }
-
-    .myWorkGallery .project {
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        text-align: center;
-        padding: 12px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        max-width: 430px;
-    }
-
-    .myWorkGallery .project:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .myWorkGallery img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .myWorkGallery h3 {
-        margin: 10px 0 5px;
-        font-size: 1.2rem;
-        color: #333;
-    }
-
-    .myWorkGallery p {
-        margin: 0 10px 15px;
-        font-size: 0.9rem;
-        color: #666;
-    }
-    /* Contact Page Styling */
-    .contact-container {
-        padding: 40px 20px;
-        max-width: 600px;
-        margin: 40px auto;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    .contact-container h1 {
-        font-size: 2rem;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .contact-container p {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 20px;
-    }
-
-    .contact-details p {
-        font-size: 1.1rem;
-        color: #333;
-        margin: 10px 0;
-    }
-
-    .contact-details a {
-        color: #333;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .contact-details a:hover {
-        color: #555;
-    }
-
-    .contact-details a:visited {
-        color: #333;
-    }
-
-    .contact-details strong {
-        font-weight: bold;
-    }
-    /* Huvudinnehåll */
-    main {
-        padding: 50px 20px 80px; /* Lägg till padding-bottom så att innehållet inte täcks av footern */
-        max-width: 50%;
-        margin: auto;
-        text-align: left;
-    }
-
-    /* Footer */
-    footer {
-        padding: 20px;
-        background-color: #333;
-        text-align: center;
-        position: relative; /* Byt till relative så att footern inte är fast i botten */
-        width: 100%;
-        z-index: 1000;
-    }
-    /* Language Practice in each project */
-    .language-practice {
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #666;
-    }
-
-    .language-practice strong {
-        font-weight: bold;
-        color: #333;
-    }
-
-    /* Färger för varje språk */
-    .language-practice .javascript {
-        color: #15a344; /* JavaScript färg */
-    }
-
-    .language-practice .typescript {
-        color: #3178c6; /* TypeScript färg */
-    }
-
-    .language-practice .csharp {
-        color: #9b4d96; /* C# färg */
-    }
-
-    .language-practice .html {
-        color: #e34f26; /* HTML färg */
-    }
-
-    .language-practice .css {
-        color: #264de4; /* CSS färg */
-    }
-    a:link { 
-        text-decoration: none; 
-    } 
-    a:visited { 
-        text-decoration: none; 
-    } 
-    a:hover { 
-        text-decoration: none; 
-    } 
-    a:active { 
-        text-decoration: none; 
-    }
-    .portrait-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-    
-    .portrait-container img {
-        padding-top: 25px;
-        max-width: 50%;
-        height: auto;
-        border-radius: 10px; /* Om du vill ha rundade hörn */
-    }
-
-    .home-container {
-    text-align: center;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    font-size: 2rem;
+/* Grundläggande layout och typografi */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f8f8f8;
+    color: #333;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    padding-top: 80px; /* För att ge plats för den fasta headern */
+}
+
+/* Header */
+header {
+    background: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    text-align: left;
+    flex: 1;
+    color: white;
+}
+
+/* Navigationsbar */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+nav a.active,
+nav a:hover {
+    background: #555;
+}
+
+/* Huvudinnehåll */
+main {
+    padding: 50px 20px 20px;
+    max-width: 50%;
+    margin: auto;
+    text-align: left;
+}
+
+/* Knappar */
+button,
+#accessibility-toggle {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+#accessibility-toggle:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* My Work Gallery */
+.myWorkGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+    justify-items: center;
+}
+
+.myWorkGallery .project {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+}
+
+.myWorkGallery .project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.myWorkGallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.myWorkGallery h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
     color: #333;
 }
 
-p {
-    font-size: 1.2rem;
-    color: #555;
-    line-height: 1.5;
+.myWorkGallery p {
+    margin: 0 10px 15px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-.button-container-home {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+/* Contact Page Styling */
+.contact-container {
+    padding: 40px;
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 2.4;
 }
 
-button:hover {
-    background: #09b55c;
+/* Responsiv design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    button,
+    #accessibility-toggle {
+        width: 100%;
+    }
+
+    main {
+        max-width: 90%;
+    }
+
+    .myWorkGallery {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background-color: #333;
     color: white;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
 }
 
 /* Tillgänglighetsläge */
 body.accessible-mode {
     background: black;
-    color: #FFD700; /* Ljusgul för bättre kontrast */
+    color: #FFD700;
 }
 
 body.accessible-mode a {
-    color: #FFD700; /* Samma gula färg som texten */
+    color: #FFD700;
     text-decoration: none;
     font-weight: bold;
 }
@@ -379,18 +218,15 @@ body.accessible-mode #accessibility-toggle {
     border: 2px solid #FFD700;
 }
 
-body.accessible-mode p, 
-body.accessible-mode h1, 
-body.accessible-mode h2, 
-body.accessible-mode h3, 
-body.accessible-mode h4, 
-body.accessible-mode h5, 
-body.accessible-mode h6 {
+body.accessible-mode p,
+body.accessible-mode h1,
+body.accessible-mode h2,
+body.accessible-mode h3 {
     color: #FFD700;
 }
 
 body.accessible-mode .myWorkGallery .project {
-    background: black;
+    background: rgb(44, 44, 44);
     border: 1px solid #FFD700;
 }
 
@@ -400,4 +236,146 @@ body.accessible-mode .myWorkGallery h3 {
 
 body.accessible-mode .myWorkGallery p {
     color: white;
+}
+
+/* Language Practice in each project */
+.language-practice {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.language-practice strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.language-practice .javascript {
+    color: #15a344;
+}
+
+.language-practice .typescript {
+    color: #3178c6;
+}
+
+.language-practice .csharp {
+    color: #9b4d96;
+}
+
+.language-practice .html {
+    color: #e34f26;
+}
+
+.language-practice .css {
+    color: #264de4;
+}
+
+/* Portrait Container */
+.portrait-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.portrait-container img {
+    padding-top: 25px;
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Home container */
+.home-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 0;
+    opacity: 0;
+    animation: fadeIn 1.3s ease-in-out 1.8s forwards;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    width: 60%; /* Adjust width */
+    max-width: none;
+}
+/* Home container */
+.button-container-home {
+    padding-top: 50px;
+}
+
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animated Text */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 17vh;
+    position: relative;
+    width: 100%;
+}
+
+.animated-text {
+    font-size: 3rem;
+    color: #000000;
+    white-space: nowrap;
+    animation: scaleUpDown 2s ease-in-out 1 forwards;
+    transform-origin: center;
+    transition: font-size 1s ease-out;
+}
+
+/* Animation Keyframes */
+@keyframes scaleUpDown {
+    0% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(2.0);
+    }
+    100% {
+        transform: scale(1.8);
+    }
+}
+
+/* Ensure the footer stays at the bottom */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Accessibility mode - Language Practice text becomes white */
+body.accessible-mode .language-practice strong {
+    color: white !important;
+}
+
+/* No text-decoration for links */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
