@@ -150,7 +150,7 @@ button:active {
     padding: 40px;
     max-width: 600px;
     margin: 50px auto;
-    background: white;
+    background: rgb(44, 44, 44);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
