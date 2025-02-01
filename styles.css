@@ -150,7 +150,7 @@ button:active {
     padding: 40px;
     max-width: 600px;
     margin: 50px auto;
-    background: rgb(44, 44, 44);
+    background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -222,6 +222,11 @@ body.accessible-mode p,
 body.accessible-mode h1,
 body.accessible-mode h2,
 body.accessible-mode h3 {
+    color: #FFD700;
+}
+
+body.accessible-mode .contact-container{
+    background: rgb(44, 44, 44);
     color: #FFD700;
 }
 
