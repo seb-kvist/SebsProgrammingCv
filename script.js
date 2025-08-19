@@ -60,9 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Generate project items
     function generateProjectCards() {
+        console.log('Generating project cards...'); // Debug log
+        console.log('Work grid element:', workGrid); // Debug log
+        console.log('Projects array:', projects); // Debug log
+        
+        if (!workGrid) {
+            console.error('Work grid not found!');
+            return;
+        }
+        
         workGrid.innerHTML = '';
         
         projects.forEach((project, index) => {
+            console.log('Creating project:', project.title); // Debug log
             const item = document.createElement('div');
             item.className = 'project-item';
             item.style.animationDelay = '0.2s'; // All items animate at the same time
@@ -87,6 +97,42 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             
             workGrid.appendChild(item);
+        });
+        
+        console.log('Project cards generated. Total items:', workGrid.children.length); // Debug log
+    }
+
+    // FAQ functionality
+    function setupFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const header = item.querySelector('.faq-header');
+            const toggle = item.querySelector('.faq-toggle');
+            
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Toggle current item only - don't close others
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Scroll arrow functionality
+    function setupScrollArrow() {
+        const scrollArrow = document.querySelector('.scroll-arrow');
+        
+        scrollArrow.addEventListener('click', () => {
+            const aboutSection = document.getElementById('about');
+            aboutSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         });
     }
 
@@ -137,25 +183,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate all items at once when work section is visible
-                    if (entry.target.classList.contains('work-section')) {
-                        const projectItems = entry.target.querySelectorAll('.project-item');
-                        projectItems.forEach(item => {
-                            item.classList.add('animate');
-                        });
-                    } else {
-                        entry.target.classList.add('animate');
-                    }
+                if (entry.target.classList.contains('work-section')) {
+                    const projectItems = entry.target.querySelectorAll('.project-item');
+                    projectItems.forEach(item => {
+                        item.classList.add('animate');
+                    });
                 } else {
-                    if (entry.target.classList.contains('work-section')) {
-                        const projectItems = entry.target.querySelectorAll('.project-item');
-                        projectItems.forEach(item => {
-                            item.classList.remove('animate');
-                        });
-                    } else {
-                        entry.target.classList.remove('animate');
-                    }
+                    entry.target.classList.add('animate');
                 }
             });
         }, observerOptions);
@@ -200,32 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupSectionReveals() {
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    
-                    // Animate text elements within the section
-                    const textElements = entry.target.querySelectorAll('h1, h2, h3, p, .project-title, .project-description');
-                    textElements.forEach((element, index) => {
-                        element.style.opacity = '0';
-                        element.style.transform = 'translateY(30px)';
-                        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                        
-                        setTimeout(() => {
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
-                        }, index * 100);
+                if (entry.target.classList.contains('work-section')) {
+                    const projectItems = entry.target.querySelectorAll('.project-item');
+                    projectItems.forEach(item => {
+                        item.classList.add('animate');
                     });
                 } else {
-                    // Reset animations when section is out of view
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(50px)';
-                    
-                    const textElements = entry.target.querySelectorAll('h1, h2, h3, p, .project-title, .project-description');
-                    textElements.forEach(element => {
-                        element.style.opacity = '0';
-                        element.style.transform = 'translateY(30px)';
-                    });
+                    entry.target.classList.add('animate');
                 }
             });
         }, {
@@ -286,7 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize all functionality
     function init() {
+        console.log('Initializing website...'); // Debug log
         generateProjectCards();
+        setupFAQ();
+        setupScrollArrow();
         setupSmoothScrolling();
         setupScrollAnimations();
         setupParallax();
@@ -300,6 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initial call to set active nav link
         updateActiveNavLink();
+        
+        console.log('Website initialization complete!'); // Debug log
     }
 
     // Start the application

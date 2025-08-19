@@ -11,7 +11,6 @@
     <!-- Navigation -->
     <nav class="floating-nav">
         <div class="nav-container">
-            <div class="nav-logo">SEB</div>
             <div class="nav-links">
                 <a href="#home" class="nav-link active" data-section="home">Home</a>
                 <a href="#about" class="nav-link" data-section="about">About</a>
@@ -48,7 +47,7 @@
             </div>
         </div>
         <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+            <div class="scroll-arrow">↓</div>
         </div>
     </section>
 
@@ -59,23 +58,56 @@
                 <h2 class="section-title">About Me</h2>
                 <div class="section-divider"></div>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="about-intro">
-                        <h3>Hi, I'm Sebastian</h3>
-                        <p class="location">30-year-old from Oskarshamn, now living in Täby, Sweden</p>
+            <div class="faq-container">
+                <!-- First FAQ item with image -->
+                <div class="faq-item active">
+                    <div class="faq-header">
+                        <h3>Who I Am</h3>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <div class="about-description">
-                        <p>I'm currently studying to become a <strong>.NET Web Developer</strong> at Jönköping University, Campus Värnamo, where I mainly focus on C# and .NET, but also some HTML, CSS, jQuery, and JavaScript.</p>
-                        <p>Before diving into programming, I studied Graphic Design and Communication at Linköping University. While it might seem like a different path, my design background has been a huge asset in my journey as a programmer.</p>
-                        <p>Understanding design principles has helped me approach problems with a focus on user experience, which is key when creating functional, intuitive applications. I believe this perspective makes me more mindful of how users interact with software, and ultimately, it leads to better code and smoother applications.</p>
-                        <p>I'm always eager to learn, tackle new challenges, and continue growing as a developer. With my background in design and my current focus on .NET development, I am eager to refine my skills and build a future career in programming!</p>
+                    <div class="faq-content">
+                        <div class="faq-with-image">
+                            <div class="faq-image">
+                                <img src="img/selfportrait.jpg" alt="Sebastian Kvist Portrait" class="portrait">
+                            </div>
+                            <div class="faq-text">
+                                <p class="location">30-year-old from Oskarshamn, now living in Täby, Sweden</p>
+                                <p>I'm currently studying to become a <strong>.NET Web Developer</strong> at Jönköping University, Campus Värnamo, where I mainly focus on C# and .NET, but also some HTML, CSS, jQuery, and JavaScript.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-container">
-                        <img src="img/selfportrait.jpg" alt="Sebastian Kvist Portrait" class="portrait">
-                        <div class="image-overlay"></div>
+
+                <!-- Second FAQ item -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>My Background</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Before diving into programming, I studied Graphic Design and Communication at Linköping University. While it might seem like a different path, my design background has been a huge asset in my journey as a programmer.</p>
+                    </div>
+                </div>
+
+                <!-- Third FAQ item -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>Design Meets Development</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>Understanding design principles has helped me approach problems with a focus on user experience, which is key when creating functional, intuitive applications. I believe this perspective makes me more mindful of how users interact with software, and ultimately, it leads to better code and smoother applications.</p>
+                    </div>
+                </div>
+
+                <!-- Fourth FAQ item -->
+                <div class="faq-item">
+                    <div class="faq-header">
+                        <h3>My Future Goals</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-content">
+                        <p>I'm always eager to learn, tackle new challenges, and continue growing as a developer. With my background in design and my current focus on .NET development, I am eager to refine my skills and build a future career in programming!</p>
                     </div>
                 </div>
             </div>
@@ -112,15 +144,15 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-card">
-                        <h3>Location</h3>
+                        <h3>📍 Location</h3>
                         <p>Täby, Stockholm</p>
                     </div>
                     <div class="contact-card">
-                        <h3>Phone</h3>
+                        <h3>📞 Phone</h3>
                         <p>072-227 78 77</p>
                     </div>
                     <div class="contact-card">
-                        <h3>Email</h3>
+                        <h3>✉️ Email</h3>
                         <p>sebastian_kvist@hotmail.com</p>
                     </div>
                 </div>
@@ -131,8 +163,9 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; 2024 Sebastian Kvist. Made with ❤️ and lots of ☕</p>
+            <p>&copy; 2024 Sebastian Kvist | <a href="https://www.linkedin.com/in/sebastian-kvist-06b23523a" target="_blank" class="linkedin-link">LinkedIn</a></p>
         </div>
     </footer>
 </body>
 </html>
+
