@@ -537,7 +537,7 @@ body::before {
 
 .faq-text .location {
     font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(34, 34, 34, 0.9);
     margin-bottom: 15px;
     font-style: italic;
 }
