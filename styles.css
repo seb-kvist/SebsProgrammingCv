@@ -372,6 +372,14 @@ body.accessible-mode .scroll-arrow::after { border-right-color: rgba(255,255,255
     backdrop-filter: blur(10px);
 }
 
+.cta-button.contact {
+    background: rgba(135, 214, 141, 0.2);
+    color: #212122;
+    border: 2px solid rgba(135, 214, 141, 0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(135, 214, 141, 0.3);
+}
+
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
@@ -386,6 +394,11 @@ body.accessible-mode .scroll-arrow::after { border-right-color: rgba(255,255,255
 .cta-button.secondary:hover {
     background: rgba(138, 196, 255, 0.4);
     border-color: rgba(138, 196, 255, 0.6);
+}
+
+.cta-button.contact:hover {
+    background: rgba(135, 214, 141, 0.4);
+    border-color: rgba(135, 214, 141, 0.6);
 }
 
 .hero-visual {
