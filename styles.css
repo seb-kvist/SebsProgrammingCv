@@ -625,6 +625,7 @@ body.faq-active .about-portrait-img {
     backdrop-filter: blur(20px);
     border: 1px solid rgba(34, 34, 34, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
 }
 
 .project-item:nth-child(even) {
@@ -747,6 +748,8 @@ body.faq-active .about-portrait-img {
 .language-tag.typescript { background: linear-gradient(135deg, #3178c6, #4facfe); }
 .language-tag.html { background: linear-gradient(135deg, #e34f26, #ff6b6b); }
 .language-tag.css { background: linear-gradient(135deg, #264de4, #4facfe); }
+.language-tag.react { background: linear-gradient(135deg, #61dafb, #21d4fd); }
+.language-tag.python { background: linear-gradient(135deg, #3776ab, #ffde57); }
 
 .project-link {
     display: inline-flex;
@@ -818,6 +821,69 @@ body.faq-active .about-portrait-img {
     width: 100px;
     height: 2px;
     background: linear-gradient(90deg, transparent, rgba(34, 34, 34, 0.3), transparent);
+}
+
+/* Projects toggle button */
+.projects-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #FFC53A, #FFD04D);
+    border: 2px solid rgba(255, 197, 58, 0.3);
+    border-radius: 30px;
+    color: #212122;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 197, 58, 0.3);
+}
+
+.projects-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.projects-toggle-btn:hover::before {
+    left: 100%;
+}
+
+.projects-toggle-btn:hover {
+    background: linear-gradient(135deg, #FFD04D, #FFE066);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 197, 58, 0.4);
+    border-color: rgba(255, 197, 58, 0.5);
+}
+
+.toggle-icon {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.projects-toggle-btn:hover .toggle-icon {
+    transform: scale(1.1);
+}
+
+/* Hidden projects container */
+.hidden-projects {
+    margin-top: 20px;
+}
+
+/* Remove divider from last visible project when hidden projects are shown */
+.visible-projects .project-item:last-child::after {
+    display: none;
 }
 
 .work-footer {

@@ -2,6 +2,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project data - Easy to add new projects!
     const projects = [
         {
+            title: "Can My Dog Eat It?",
+            description: "A web app to help dog owners quickly check if foods, drinks, or household items are safe for their dogs. Created alongside with Lovable.",
+            image: "img/Canmydogeat.png",
+            link: "https://github.com/seb-kvist/CanMyDogEatIt",
+            languages: ["typescript", "css", "react"]
+        },
+        {
+            title: "Garden Prompt Generator",
+            description: "A desktop app built with Python and Tkinter to generate photorealistic Japanese garden image prompts and SEO-optimized YouTube titles/descriptions",
+            image: "img/JapGarden Project2.png",
+            link: "https://github.com/seb-kvist/Garden-Prompt-Generator",
+            languages: ["python"]
+        },
+        {
+            title: "ShoppingMate",
+            description: "App made to create, share and edit shoppinglists together. Building front & backend with api calls and fetch.",
+            image: "img/shoppingmate.png",
+            link: "https://github.com/seb-kvist/ShoppingMate",
+            languages: ["javascript", "csharp", "css", "html", "react"]
+        },
+        {
             title: "Toshi-I-Verket",
             description: "Web-based auction platform developed with .NET and ASP.NET Core.",
             image: "img/ToshiIVerket.jpg",
@@ -279,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animationState.aboutLoaded = true;
     }
 
-    // Load work section with all projects at once
+    // Load work section with collapsible project list
     function loadWorkSection() {
         if (animationState.workLoaded) return;
         
@@ -290,6 +311,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Clear and populate work grid
         workGrid.innerHTML = '';
+        
+        // Create container for visible projects
+        const visibleProjectsContainer = document.createElement('div');
+        visibleProjectsContainer.className = 'visible-projects';
+        
+        // Create container for hidden projects
+        const hiddenProjectsContainer = document.createElement('div');
+        hiddenProjectsContainer.className = 'hidden-projects';
+        hiddenProjectsContainer.style.display = 'none';
+        
+        // Create toggle button
+        const toggleButton = document.createElement('button');
+        toggleButton.className = 'projects-toggle-btn';
+        toggleButton.innerHTML = `
+            <span class="toggle-text">Show More Projects</span>
+            <span class="toggle-icon">▼</span>
+        `;
         
         projects.forEach((project, index) => {
             const item = document.createElement('div');
@@ -314,13 +352,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             
-            workGrid.appendChild(item);
+            // First 4 projects go to visible container, rest to hidden
+            if (index < 4) {
+                visibleProjectsContainer.appendChild(item);
+            } else {
+                hiddenProjectsContainer.appendChild(item);
+            }
         });
         
-        // Animate all projects in with staggered timing
+        // Add toggle button functionality
+        toggleButton.addEventListener('click', () => {
+            const isHidden = hiddenProjectsContainer.style.display === 'none';
+            
+            if (isHidden) {
+                // Show hidden projects
+                hiddenProjectsContainer.style.display = 'block';
+                toggleButton.querySelector('.toggle-text').textContent = 'Show Less Projects';
+                toggleButton.querySelector('.toggle-icon').textContent = '▲';
+                
+                // Move toggle button to bottom of all projects
+                workGrid.appendChild(toggleButton);
+                
+                // Animate hidden projects in
+                const hiddenItems = hiddenProjectsContainer.querySelectorAll('.project-item');
+                hiddenItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(80px) scale(0.9)';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0) scale(1)';
+                    }, index * 150);
+                });
+            } else {
+                // Hide projects
+                hiddenProjectsContainer.style.display = 'none';
+                toggleButton.querySelector('.toggle-text').textContent = 'Show More Projects';
+                toggleButton.querySelector('.toggle-icon').textContent = '▼';
+                
+                // Move toggle button back to middle (after visible projects)
+                workGrid.insertBefore(toggleButton, hiddenProjectsContainer);
+            }
+        });
+        
+        // Append containers and toggle button
+        workGrid.appendChild(visibleProjectsContainer);
+        workGrid.appendChild(hiddenProjectsContainer);
+        workGrid.appendChild(toggleButton);
+        
+        // Animate visible projects in with staggered timing
         setTimeout(() => {
-            const projectItems = workGrid.querySelectorAll('.project-item');
-            projectItems.forEach((item, index) => {
+            const visibleItems = visibleProjectsContainer.querySelectorAll('.project-item');
+            visibleItems.forEach((item, index) => {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(80px) scale(0.9)';
                 item.style.transition = 'opacity 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55), transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
@@ -328,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     item.style.opacity = '1';
                     item.style.transform = 'translateY(0) scale(1)';
-                }, index * 200); // Faster stagger for better flow
+                }, index * 200);
             });
         }, 300);
         
