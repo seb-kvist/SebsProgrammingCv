@@ -11,34 +11,69 @@ html {
     min-height: 100%;
 }
 
+/* Light creamy background with subtle green tint */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    background: #FAFFD8;
-    color: #212122;
+    background: linear-gradient(180deg, #fefdf9 0%, #fbfaf5 20%, #f7f5ef 40%, #f4f1ea 60%, #f1eee6 80%, #eef0e9 100%);
+    background-attachment: fixed;
+    color: #4a4a4a;
     overflow-x: hidden;
     transition: all 0.3s ease;
     position: relative;
     min-height: 100vh;
 }
 
-/* Grainy background overlay */
-body::before {
+/* Subtle smudge/blur to hide seams between gradient steps */
+body::after {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/seamless_grain_tile_1024.png');
-    background-size: 400px 400px;
-    background-repeat: repeat;
+    position: fixed;
+    inset: 0;
     pointer-events: none;
-    z-index: -1;
-    opacity: 0.25;
-    mix-blend-mode: soft-light;
+    background:
+      radial-gradient(120% 45% at 50% 0%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(120% 45% at 50% 100%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 60%);
+    filter: blur(10px);
 }
 
+/* Grain overlay for subtle texture */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 300px 300px;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+
+/* Keep smudge overlay above grain but below content */
+body::after { z-index: 0; }
+
+/* Ensure content sits above overlays */
+.section, .floating-nav { position: relative; z-index: 1; }
+
+/* Dark/Accessible mode grain strength */
+body.accessible-mode::before { opacity: 0.4; mix-blend-mode: screen; }
+
+/* Hero dark-mode readability */
+body.accessible-mode .hero-description { color: #E8E6E3 !important; }
+body.accessible-mode .cta-button.primary {
+    background: linear-gradient(135deg, #FFD04D, #FFC107);
+    color: #0c0f0d;
+    box-shadow: 0 10px 28px rgba(255, 208, 77, 0.25);
+}
+body.accessible-mode .cta-button.secondary {
+    background: rgba(255,255,255,0.16);
+    border: 2px solid rgba(255,255,255,0.25);
+    color: #E8E6E3;
+}
+
+/* Scroll indicator contrast in dark mode */
+body.accessible-mode .scroll-arrow { background: rgba(255,255,255,0.65); }
+body.accessible-mode .scroll-arrow::after { border-right-color: rgba(255,255,255,0.65); border-bottom-color: rgba(255,255,255,0.65); }
 
 
 /* Navigation */
@@ -125,6 +160,44 @@ body::before {
     background: rgba(34, 34, 34, 0.3);
     transform: scale(1.1) rotate(180deg);
 }
+
+/* Right-side social nav */
+.floating-nav.social-nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    left: auto;
+    transform: translateY(-50%);
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.social-nav .nav-container { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover { transform: translateY(-2px); background: rgba(255,255,255,0.3); }
+
+/* Dark mode social nav */
+body.accessible-mode .social-link { color: #E8E6E3; background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
 
 /* Sections */
 .section {
@@ -408,7 +481,7 @@ body::before {
     background: rgba(34, 34, 34, 0.1);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     border: 1px solid rgba(34, 34, 34, 0.2);
     overflow: hidden;
     transition: all 0.3s ease;
@@ -421,7 +494,7 @@ body::before {
 }
 
 .faq-header {
-    padding: 25px 30px;
+    padding: 28px 34px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -462,85 +535,76 @@ body::before {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 34px;
 }
 
 .faq-item.active .faq-content {
-    max-height: 800px;
+    max-height: 1000px;
+    padding: 22px 34px 28px;
 }
 
 .faq-item.active .faq-header {
-    border-bottom: 2px solid rgba(34, 34, 34, 0.4);
+    border-bottom: none;
     background: rgba(34, 34, 34, 0.05);
 }
 
 .faq-content p {
-    padding: 0 30px 25px;
+    padding: 0;
+    margin: 0 0 14px;
     color: rgba(34, 34, 34, 0.9);
     line-height: 1.7;
-    margin: 0;
     opacity: 1;
     transform: none;
     transition: all 0.3s ease;
 }
 
-.faq-item.active .faq-content p {
-    opacity: 1;
-    transform: none;
+.faq-content p:last-child {
+    margin-bottom: 0;
 }
 
-.faq-with-image {
+/* About split layout */
+.about-split {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 30px;
-    align-items: center;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
+    align-items: stretch;
 }
 
-.faq-image {
-    text-align: center;
+.faq-column {
+    width: 100%;
 }
 
-.faq-image .portrait {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
-    transition: all 0.3s ease;
+.about-portrait-column {
+    align-self: stretch;
+}
+
+.about-portrait-wrapper {
     position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.faq-image .portrait::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.about-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    -webkit-mask-image: radial-gradient(140% 140% at 50% 50%, black 60%, transparent 100%);
+    mask-image: radial-gradient(140% 140% at 50% 50%, black 60%, transparent 100%);
+    filter: drop-shadow(0 20px 60px rgba(0,0,0,0.2));
 }
 
-.faq-image .portrait:hover {
-    transform: scale(1.05);
+.portrait-caption {
+    margin-top: 12px;
+    text-align: center;
+    color: rgba(34,34,34,0.8);
+    font-size: 0.95rem;
 }
 
-.faq-image .portrait:hover::before {
-    opacity: 1;
-}
-
-.faq-text {
-    padding: 0;
-}
-
-.faq-text .location {
-    font-size: 1.1rem;
-    color: rgba(34, 34, 34, 0.9);
-    margin-bottom: 15px;
-    font-style: italic;
-}
+/* Remove legacy FAQ-with-image layout spacing */
+.faq-with-image { display: contents; }
+.faq-image, .faq-text { padding: 0; }
 
 /* Work Section */
 .work-section {
@@ -996,9 +1060,10 @@ body::before {
 }
 
 /* Accessibility Mode */
+/* Dark/Accessible mode improvements */
 body.accessible-mode {
-    background: #000;
-    color: #FFD700;
+    background: linear-gradient(180deg, #0c0f0d 0%, #0e110f 100%);
+    color: #E8E6E3;
 }
 
 body.accessible-mode .floating-nav {
@@ -1027,6 +1092,44 @@ body.accessible-mode .contact-card {
 body.accessible-mode .contact-card h3,
 body.accessible-mode .contact-card p {
     color: #FFD700;
+}
+
+/* Ensure readable text colors in dark mode */
+body.accessible-mode .nav-link,
+body.accessible-mode .section-title,
+body.accessible-mode .title-line,
+body.accessible-mode .title-subtitle,
+body.accessible-mode .section-subtitle,
+body.accessible-mode .github-link,
+body.accessible-mode .work-footer p,
+body.accessible-mode .project-title,
+body.accessible-mode .project-description,
+body.accessible-mode .project-link,
+body.accessible-mode .language-tag,
+body.accessible-mode .faq-header h3,
+body.accessible-mode .faq-content p,
+body.accessible-mode .location,
+body.accessible-mode .contact-card h3,
+body.accessible-mode .contact-card p {
+    color: #E8E6E3 !important;
+}
+
+body.accessible-mode .floating-nav,
+body.accessible-mode .project-item,
+body.accessible-mode .faq-item,
+body.accessible-mode .contact-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.accessible-mode .project-link { border-color: rgba(255,255,255,0.25); }
+body.accessible-mode .github-link { border-bottom-color: rgba(255,255,255,0.5); }
+
+/* Dark mode smudge overlay */
+body.accessible-mode::after {
+    background:
+      radial-gradient(120% 45% at 50% 0%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(120% 45% at 50% 100%, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 60%);
 }
 
 /* Responsive Design */
@@ -1227,4 +1330,14 @@ body.accessible-mode .contact-card p {
     flex-direction: column;
     gap: 60px;
     margin-bottom: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .about-split {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+    .about-portrait-wrapper { height: auto; aspect-ratio: 4 / 3; }
 }

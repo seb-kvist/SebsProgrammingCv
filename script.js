@@ -105,15 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // FAQ functionality
     function setupFAQ() {
         const faqItems = document.querySelectorAll('.faq-item');
+
+        // Ensure the first item is open by default
+        if (faqItems.length > 0 && !faqItems[0].classList.contains('active')) {
+            faqItems[0].classList.add('active');
+        }
         
         faqItems.forEach(item => {
             const header = item.querySelector('.faq-header');
-            const toggle = item.querySelector('.faq-toggle');
-            
             header.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Toggle current item only - don't close others
                 if (isActive) {
                     item.classList.remove('active');
                 } else {
