@@ -390,8 +390,8 @@ body.accessible-mode .social-link[aria-label="Email"] { color: #E8E6E3; }
 .hero-title {
     margin-bottom: 30px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+        flex-direction: column;
+        align-items: center;
     width: 100%;
 }
 
@@ -407,7 +407,7 @@ body.accessible-mode .social-link[aria-label="Email"] { color: #E8E6E3; }
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     white-space: nowrap;
-    width: 100%;
+        width: 100%;
     opacity: 0;
     animation: fadeInUpBouncy 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s forwards;
 }
