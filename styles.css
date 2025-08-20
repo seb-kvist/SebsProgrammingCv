@@ -400,7 +400,7 @@ body.accessible-mode .social-link[aria-label="Email"] { color: #E8E6E3; }
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 1px;
     font-size: 5.5rem;
     font-weight: 900;
     color: #212122;
