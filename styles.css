@@ -1,3 +1,11 @@
+/* Color palette */
+:root {
+    --light-green: #87D68D;
+    --bittersweet: #F25757;
+    --mikado-yellow: #FFC53A;
+    --jordy-blue: #8AC4FF;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -238,6 +246,11 @@ body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
     animation: none;
 }
 
+/* Section title colors */
+#about .section-title { color: var(--jordy-blue); } /* About Me - blue */
+#work .section-title { color: var(--mikado-yellow); } /* My Work - yellow */
+#contact .section-title { color: var(--light-green); } /* Get In Touch - green */
+
 .section-divider {
     width: 80px;
     height: 4px;
@@ -315,13 +328,17 @@ body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
     animation-delay: calc(1.5s + var(--delay, 0s));
 }
 
+/* Color each word in the main title */
+.word:nth-child(1) { color: var(--jordy-blue); } /* "Well" - blue */
+.word:nth-child(2) { color: var(--mikado-yellow); } /* "hello" - yellow */
+.word:nth-child(3) { color: var(--light-green); } /* "there" - green */
+
 .word.visible {
     opacity: 1;
 }
 
 .word:nth-child(1) {
-    animation: wordFloat1 5s ease-in-out infinite;
-    animation-delay: 1.5s;
+    /* "Well" - no animation */
 }
 
 .word:nth-child(2) {
@@ -330,8 +347,7 @@ body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
 }
 
 .word:nth-child(3) {
-    animation: wordFloat3 6.5s ease-in-out infinite;
-    animation-delay: 1.9s;
+    /* "there" - no animation */
 }
 
 .title-subtitle {
@@ -374,17 +390,17 @@ body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
 }
 
 .cta-button.primary {
-    background: rgba(34, 34, 34, 0.2);
+    background: rgba(255, 197, 58, 0.2);
     color: #212122;
-    border: 2px solid rgba(34, 34, 34, 0.3);
+    border: 2px solid rgba(255, 197, 58, 0.4);
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 197, 58, 0.3);
 }
 
 .cta-button.secondary {
-    background: rgba(34, 34, 34, 0.1);
+    background: rgba(138, 196, 255, 0.2);
     color: #212122;
-    border: 2px solid rgba(34, 34, 34, 0.2);
+    border: 2px solid rgba(138, 196, 255, 0.4);
     backdrop-filter: blur(10px);
 }
 
@@ -395,8 +411,13 @@ body.accessible-mode .social-link:hover { background: rgba(255,255,255,0.18); }
 }
 
 .cta-button.primary:hover {
-    background: rgba(34, 34, 34, 0.4);
-    border-color: rgba(34, 34, 34, 0.5);
+    background: rgba(255, 197, 58, 0.4);
+    border-color: rgba(255, 197, 58, 0.6);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(138, 196, 255, 0.4);
+    border-color: rgba(138, 196, 255, 0.6);
 }
 
 .hero-visual {
