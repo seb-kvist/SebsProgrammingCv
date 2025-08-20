@@ -17,14 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "ShoppingMate",
-            description: "App made to create, share and edit shoppinglists together. Building front & backend with api calls and fetch.",
+            description: "ShoppingMate is an app designed for creating, sharing, and collaboratively editing shopping lists. It features both a front-end and back-end, connected through API calls and fetch requests.",
             image: "img/shoppingmate.png",
             link: "https://github.com/seb-kvist/ShoppingMate",
             languages: ["javascript", "csharp", "css", "html", "react"]
         },
         {
             title: "Toshi-I-Verket",
-            description: "Web-based auction platform developed with .NET and ASP.NET Core.",
+            description: "Toshi-I-Verket is a web-based auction platform developed with .NET and ASP.NET Core. The platform is designed to showcase various creations organized into multiple categories and facilitate auction management.",
             image: "img/ToshiIVerket.jpg",
             link: "https://github.com/seb-kvist/Toshi-i-verket",
             languages: ["csharp", "javascript", "html", "css"]
