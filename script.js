@@ -491,9 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setupHelloAnimation();
         setupHeroAnimations();
         
-        // Add scroll event listener for navigation
-        window.addEventListener('scroll', updateActiveNavLink);
-        
         // Initial call to set active nav link
         updateActiveNavLink();
     }
